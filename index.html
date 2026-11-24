@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rosbooking — впечатления, экскурсии и отели Петербурга</title>
+<meta name="description" content="Rosbooking — авторские экскурсии, туры, круизы и жильё в Петербурге и окрестностях.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c32023'/%3E%3Cpath d='M16 7c-3.9 0-7 3-7 6.8 0 5 7 11.2 7 11.2s7-6.2 7-11.2C23 10 19.9 7 16 7zm0 9.4a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z' fill='%23fff'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2.6c-4.2 0-7.5 3.2-7.5 7.3 0 5.4 7.5 11.9 7.5 11.9s7.5-6.5 7.5-11.9c0-4.1-3.3-7.3-7.5-7.3Zm0 10a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4"/><path d="M6 5h10.5l-2 3.5 2 3.5H6"/></symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="12" rx="3"/><path d="M4 10h16M8 16v2M16 16v2"/><circle cx="8" cy="13" r=".8"/><circle cx="16" cy="13" r=".8"/></symbol>
+    <symbol id="i-ship" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h16l-2 4H6l-2-4Z"/><path d="M7 14V8h10v6M12 8V4"/></symbol>
+    <symbol id="i-hotel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V6h9v14M14 10h5v10"/><path d="M8 9h3M8 13h3M8 17h3"/></symbol>
+    <symbol id="i-ticket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8Z"/><path d="M9 6v12"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 6.5-6.5l.6.6.6-.6A4.6 4.6 0 1 1 19.1 13L12 20.3Z"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 6-6 6 6 6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10 6 6 6-6 6"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 7h14M5 17h14"/><circle cx="9" cy="7" r="2.4" fill="#fff"/><circle cx="15" cy="17" r="2.4" fill="#fff"/></symbol>
+    <symbol id="i-burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18c1.4 0 2-1 2-2 0-1.4-1.2-1.6-1.2-2.8 0-1 .8-1.7 1.9-1.7H17a4 4 0 0 0 4-4C21 6.3 17 3 12 3Zm-5 9.2A1.6 1.6 0 1 1 8.6 10 1.6 1.6 0 0 1 7 12.2Zm2.5-4.6A1.6 1.6 0 1 1 11.1 6a1.6 1.6 0 0 1-1.6 1.6Zm4.9-1.2a1.6 1.6 0 1 1 1.6-1.6 1.6 1.6 0 0 1-1.6 1.6Zm3.9 3a1.6 1.6 0 1 1 1.6-1.6 1.6 1.6 0 0 1-1.6 1.6Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a8 8 0 1 1 1.6 6.4"/><path d="M4 4v6h6"/></symbol>
+  </defs>
+</svg>
+
+<!-- ШАПКА -->
+<header class="topbar" id="topbar">
+  <div class="container topbar__inner">
+    <a class="logo" href="#" aria-label="Rosbooking — на главную">
+      <svg class="logo__pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6c-4.2 0-7.5 3.2-7.5 7.3 0 5.4 7.5 11.9 7.5 11.9s7.5-6.5 7.5-11.9c0-4.1-3.3-7.3-7.5-7.3Zm0 10a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z"/></svg>
+      <span>Rosbooking</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#">Для партнёров</a>
+      <a href="#">Помощь</a>
+      <a href="#">Идеи для отдыха</a>
+      <a href="#">Избранное</a>
+      <a href="#">Мой план</a>
+      <a href="#">Мои бронирования</a>
+    </nav>
+    <div class="topbar__actions">
+      <a class="btn btn--white" href="#">Войти или зарегистрироваться</a>
+      <a class="btn btn--white btn--login-mobile" href="#">Войти</a>
+      <button class="icon-btn icon-btn--burger" type="button" aria-label="Меню">
+        <svg class="ic" aria-hidden="true"><use href="#i-burger"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- КАТЕГОРИИ + ПОИСК -->
+<section class="cats" aria-label="Поиск">
+  <div class="container">
+    <div class="cats__row" role="tablist" aria-label="Категории">
+      <button class="chip is-active" role="tab" aria-selected="true" type="button"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg>Все</button>
+      <button class="chip" role="tab" aria-selected="false" type="button"><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg>Экскурсии</button>
+      <button class="chip" role="tab" aria-selected="false" type="button"><svg class="ic" aria-hidden="true"><use href="#i-bus"/></svg>Туры</button>
+      <button class="chip" role="tab" aria-selected="false" type="button"><svg class="ic" aria-hidden="true"><use href="#i-ship"/></svg>Круизы</button>
+      <button class="chip" role="tab" aria-selected="false" type="button"><svg class="ic" aria-hidden="true"><use href="#i-hotel"/></svg>Жильё</button>
+      <button class="chip" role="tab" aria-selected="false" type="button"><svg class="ic" aria-hidden="true"><use href="#i-ticket"/></svg>Билеты</button>
+    </div>
+
+    <form class="search" role="search" onsubmit="return false">
+      <label class="search__field search__field--wide">
+        <span class="search__label">Куда</span>
+        <input class="search__input" type="text" placeholder="Город или что хотите увидеть" aria-label="Куда">
+      </label>
+      <span class="search__divider" aria-hidden="true"></span>
+      <label class="search__field">
+        <span class="search__label">Когда</span>
+        <input class="search__input" type="text" placeholder="Любые даты" aria-label="Когда">
+      </label>
+      <span class="search__divider" aria-hidden="true"></span>
+      <label class="search__field">
+        <span class="search__label">Кто едет</span>
+        <input class="search__input" type="text" placeholder="Добавьте гостей" aria-label="Кто едет">
+      </label>
+      <button class="search__submit" type="submit" aria-label="Найти">
+        <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+      </button>
+    </form>
+
+    <div class="search-mobile">
+      <button class="search-mobile__main" type="button">
+        <svg class="ic search-mobile__ic" aria-hidden="true"><use href="#i-search"/></svg>
+        <span class="search-mobile__text">
+          <strong>Куда поедем?</strong>
+          <small>Любые даты · Гости</small>
+        </span>
+      </button>
+      <button class="search-mobile__filter" type="button" aria-label="Фильтры">
+        <svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<main>
+  <!-- ВПЕЧАТЛЕНИЯ НА ВЫХОДНЫЕ -->
+  <section class="section container" data-carousel>
+    <div class="section__head">
+      <div class="section__title-wrap">
+        <h2 class="section__title"><span class="section__title-text">Впечатления на эти выходные</span>
+          <span class="round-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span>
+        </h2>
+        <p class="section__sub">Петербург и окрестности · 29–30 ноября</p>
+      </div>
+      <div class="section__controls">
+        <button class="ctrl" type="button" data-prev aria-label="Назад"><svg class="ic"><use href="#i-chevron-left"/></svg></button>
+        <button class="ctrl" type="button" data-next aria-label="Вперёд"><svg class="ic"><use href="#i-chevron-right"/></svg></button>
+      </div>
+    </div>
+
+    <div class="cards" data-track>
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/weekend-1.jpg" alt="Медный всадник на закате" loading="lazy">
+          <span class="badge">сб, 12:00</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Реки и каналы Петербурга на теплоходе</a>
+        <p class="card__meta">Прогулка · 1,5 ч · <span class="star">★</span> 4,87</p>
+        <p class="card__price">от 1 200 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/weekend-2.jpg" alt="Девушка на крыше с поднятыми руками" loading="lazy">
+          <span class="badge">сб, 15:00</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">По крышам исторического центра</a>
+        <p class="card__meta">Экскурсия · 2 ч · <span class="star">★</span> 4,92</p>
+        <p class="card__price">от 2 500 ₽ <span>за гостя</span></p>
+        <p class="card__note">Осталось 3 места</p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/weekend-3.jpg" alt="Золотые залы дворца" loading="lazy">
+          <span class="badge">сб, 19:00</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Мистический Петербург: легенды и призраки</a>
+        <p class="card__meta">Пешком · 2,5 ч · <span class="star">★</span> 4,78</p>
+        <p class="card__price">от 1 500 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/weekend-4.jpg" alt="Теплоход на Неве на закате" loading="lazy">
+          <span class="badge">вс, 18:30</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Ужин на «Имперском» теплоходе</a>
+        <p class="card__meta">Круиз · 3 ч · <span class="star">★</span> 4,81</p>
+        <p class="card__price">от 4 900 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/weekend-5.jpg" alt="Памятник Достоевскому с цветами" loading="lazy">
+          <span class="badge">вс, 11:00</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Петербург Достоевского</a>
+        <p class="card__meta">Пешком · 2 ч · <span class="star">★</span> 4,95</p>
+        <p class="card__price">от 1 300 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/weekend-6.jpg" alt="Екатерининский дворец" loading="lazy">
+          <span class="badge">вс, 9:30</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Царское Село и Янтарная комната</a>
+        <p class="card__meta">Автобусная · 7 ч · <span class="star">★</span> 4,84</p>
+        <p class="card__price">от 3 200 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/weekend-7.jpg" alt="Разводные мосты и Петропавловский собор" loading="lazy">
+          <span class="badge">сб, 0:30</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Ночной теплоход под разводными мостами</a>
+        <p class="card__meta">Прогулка · 2 ч · <span class="star">★</span> 4,90</p>
+        <p class="card__price">от 1 800 ₽ <span>за гостя</span></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ПОДБОРКИ -->
+  <section class="section container" data-carousel>
+    <div class="section__head">
+      <div class="section__title-wrap">
+        <h2 class="section__title"><span class="section__title-text">Подборки Rosbooking</span>
+          <span class="round-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span>
+        </h2>
+        <p class="section__sub">Готовые идеи на 1–3 дня, собранные редакцией</p>
+      </div>
+      <div class="section__controls">
+        <button class="ctrl" type="button" data-prev aria-label="Назад"><svg class="ic"><use href="#i-chevron-left"/></svg></button>
+        <button class="ctrl" type="button" data-next aria-label="Вперёд"><svg class="ic"><use href="#i-chevron-right"/></svg></button>
+      </div>
+    </div>
+
+    <div class="collections" data-track>
+      <a class="collection" href="#">
+        <img src="assets/photos/col-water.jpg" alt="Прогулка по каналам Петербурга" loading="lazy">
+        <div class="collection__body">
+          <p class="collection__label">Подборка · 24 прогулки · от 900 ₽</p>
+          <h3 class="collection__title">Петербург с воды</h3>
+          <span class="btn btn--accent btn--sm">Смотреть подборку <svg class="ic"><use href="#i-arrow-right"/></svg></span>
+        </div>
+      </a>
+      <a class="collection" href="#">
+        <img src="assets/photos/col-palaces.jpg" alt="Фонтаны Петергофа" loading="lazy">
+        <div class="collection__body">
+          <p class="collection__label">Подборка · 18 экскурсий · от 2 100 ₽</p>
+          <h3 class="collection__title">Дворцы и фонтаны пригородов</h3>
+          <span class="btn btn--accent btn--sm">Смотреть подборку <svg class="ic"><use href="#i-arrow-right"/></svg></span>
+        </div>
+      </a>
+      <a class="collection" href="#">
+        <img src="assets/photos/col-winter.jpg" alt="Мраморный лев в снегу" loading="lazy">
+        <div class="collection__body">
+          <p class="collection__label">Подборка · 32 впечатления · от 1 200 ₽</p>
+          <h3 class="collection__title">Зимний Петербург</h3>
+          <span class="btn btn--accent btn--sm">Смотреть подборку <svg class="ic"><use href="#i-arrow-right"/></svg></span>
+        </div>
+      </a>
+      <a class="collection" href="#">
+        <img src="assets/photos/col-ny.jpg" alt="Праздничный Петербург, ряженые" loading="lazy">
+        <div class="collection__body">
+          <p class="collection__label">Подборка · 15 программ · от 3 500 ₽</p>
+          <h3 class="collection__title">Новый год в Петербурге</h3>
+          <span class="btn btn--accent btn--sm">Смотреть подборку <svg class="ic"><use href="#i-arrow-right"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ВСЕ ВПЕЧАТЛЕНИЯ -->
+  <section class="section container" data-carousel>
+    <div class="section__head">
+      <div class="section__title-wrap">
+        <h2 class="section__title"><span class="section__title-text">Санкт-Петербург: все впечатления</span>
+          <span class="round-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span>
+        </h2>
+        <p class="section__sub">1 240 экскурсий, туров и круизов</p>
+      </div>
+      <div class="section__controls">
+        <button class="ctrl" type="button" data-prev aria-label="Назад"><svg class="ic"><use href="#i-chevron-left"/></svg></button>
+        <button class="ctrl" type="button" data-next aria-label="Вперёд"><svg class="ic"><use href="#i-chevron-right"/></svg></button>
+      </div>
+    </div>
+
+    <div class="cards" data-track>
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/spb-1.jpg" alt="Метеор на Неве" loading="lazy">
+          <span class="badge badge--light">Популярно</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">На «Метеоре» в Петергоф</a>
+        <p class="card__meta">Прогулка · 4 ч · <span class="star">★</span> 4,76</p>
+        <p class="card__price">от 2 900 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/spb-2.jpg" alt="Фонтаны Петергофа" loading="lazy">
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Петергоф и Кронштадт</a>
+        <p class="card__meta">Автобусная · 9 ч · <span class="star">★</span> 4,83</p>
+        <p class="card__price">от 3 500 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/spb-3.jpg" alt="Ораниенбаум, Китайский дворец" loading="lazy">
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Ораниенбаум: Китайский дворец</a>
+        <p class="card__meta">Автобусная · 6 ч · <span class="star">★</span> 4,88</p>
+        <p class="card__price">от 2 700 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/spb-4.jpg" alt="Улица Петербурга" loading="lazy">
+          <span class="badge badge--light">Новинка</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Петербург за 3 дня: всё главное</a>
+        <p class="card__meta">Тур · 3 дня · <span class="star">★</span> 4,91</p>
+        <p class="card__price">от 18 400 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/spb-5.jpg" alt="Парк Петергофа с фонтанами" loading="lazy">
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Нижний парк и фонтаны Петергофа</a>
+        <p class="card__meta">Экскурсия · 3 ч · <span class="star">★</span> 4,80</p>
+        <p class="card__price">от 2 100 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/spb-6.jpg" alt="Медный всадник" loading="lazy">
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Обзорная: Медный всадник и Исаакий</a>
+        <p class="card__meta">Автобусная · 3 ч · <span class="star">★</span> 4,73</p>
+        <p class="card__price">от 1 100 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/spb-7.jpg" alt="Петропавловская крепость" loading="lazy">
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Петропавловская крепость и пушка</a>
+        <p class="card__meta">Пешком · 2 ч · <span class="star">★</span> 4,69</p>
+        <p class="card__price">от 1 400 ₽ <span>за гостя</span></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ЗИМА -->
+  <section class="section container" data-carousel>
+    <div class="section__head">
+      <div class="section__title-wrap">
+        <h2 class="section__title"><span class="section__title-text">Петербург зимой</span>
+          <span class="round-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span>
+        </h2>
+        <p class="section__sub">Ёлки, катки и дворцы в снегу · декабрь–февраль</p>
+      </div>
+      <div class="section__controls">
+        <button class="ctrl" type="button" data-prev aria-label="Назад"><svg class="ic"><use href="#i-chevron-left"/></svg></button>
+        <button class="ctrl" type="button" data-next aria-label="Вперёд"><svg class="ic"><use href="#i-chevron-right"/></svg></button>
+      </div>
+    </div>
+
+    <div class="cards" data-track>
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/win-1.jpg" alt="Дворцовая площадь зимой" loading="lazy">
+          <span class="badge badge--light">Популярно</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Зимняя Дворцовая и Эрмитаж</a>
+        <p class="card__meta">Пешком · 2 ч · <span class="star">★</span> 4,86</p>
+        <p class="card__price">от 1 600 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/win-2.jpg" alt="Лев в снегу" loading="lazy">
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Зимние львы и набережные Невы</a>
+        <p class="card__meta">Пешком · 2 ч · <span class="star">★</span> 4,79</p>
+        <p class="card__price">от 1 300 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/win-3.jpg" alt="Новогодняя ярмарка" loading="lazy">
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Новогодние ярмарки Петербурга</a>
+        <p class="card__meta">Прогулка · 3 ч · <span class="star">★</span> 4,90</p>
+        <p class="card__price">от 1 900 ₽ <span>за гостя</span></p>
+        <p class="card__note">Осталось 2 места</p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/win-4.jpg" alt="Ночь огней в Петербурге" loading="lazy">
+          <span class="badge badge--light">Новинка</span>
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Ночь огней: праздничный Петербург</a>
+        <p class="card__meta">Автобусная · 3 ч · <span class="star">★</span> 4,94</p>
+        <p class="card__price">от 2 300 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/win-5.jpg" alt="Петергоф зимой" loading="lazy">
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Петергоф зимой: Большой дворец</a>
+        <p class="card__meta">Экскурсия · 5 ч · <span class="star">★</span> 4,82</p>
+        <p class="card__price">от 3 900 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/win-6.jpg" alt="Закат на Неве" loading="lazy">
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Закат на Неве с горячим чаем</a>
+        <p class="card__meta">Прогулка · 1,5 ч · <span class="star">★</span> 4,77</p>
+        <p class="card__price">от 1 500 ₽ <span>за гостя</span></p>
+      </article>
+
+      <article class="card">
+        <a class="card__media" href="#"><img src="assets/photos/win-7.jpg" alt="Интерьер собора" loading="lazy">
+          <button class="heart" type="button" aria-label="В избранное" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button>
+        </a>
+        <a class="card__title" href="#">Под куполами: соборы Петербурга</a>
+        <p class="card__meta">Экскурсия · 2 ч · <span class="star">★</span> 4,85</p>
+        <p class="card__price">от 1 700 ₽ <span>за гостя</span></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- КУДА ПОЕХАТЬ -->
+  <section class="section container section--cities" data-carousel>
+    <div class="section__head">
+      <div class="section__title-wrap">
+        <h2 class="section__title"><span class="section__title-text">Куда поехать</span>
+          <span class="round-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span>
+        </h2>
+        <p class="section__sub">Выберите город — покажем всё, что там есть</p>
+      </div>
+      <div class="section__controls">
+        <button class="ctrl" type="button" data-prev aria-label="Назад"><svg class="ic"><use href="#i-chevron-left"/></svg></button>
+        <button class="ctrl" type="button" data-next aria-label="Вперёд"><svg class="ic"><use href="#i-chevron-right"/></svg></button>
+      </div>
+    </div>
+
+    <div class="cities" data-track>
+      <a class="city" href="#"><img src="assets/photos/city-spb.jpg" alt="Санкт-Петербург" loading="lazy"><span class="city__name">Санкт-Петербург</span><span class="city__sub">1 240 впечатлений</span></a>
+      <a class="city" href="#"><img src="assets/photos/city-peterhof.jpg" alt="Петергоф" loading="lazy"><span class="city__name">Петергоф</span><span class="city__sub">58 впечатлений</span></a>
+      <a class="city" href="#"><img src="assets/photos/city-pushkin.jpg" alt="Пушкин" loading="lazy"><span class="city__name">Пушкин</span><span class="city__sub">34 впечатления</span></a>
+      <a class="city" href="#"><img src="assets/photos/city-karelia.jpg" alt="Карелия" loading="lazy"><span class="city__name">Карелия</span><span class="city__sub">186 впечатлений</span></a>
+      <a class="city" href="#"><img src="assets/photos/city-vyborg.jpg" alt="Выборг" loading="lazy"><span class="city__name">Выборг</span><span class="city__sub">42 впечатления</span></a>
+      <a class="city" href="#"><img src="assets/photos/city-moscow.jpg" alt="Москва" loading="lazy"><span class="city__name">Москва</span><span class="city__sub">Скоро</span></a>
+      <a class="city" href="#"><img src="assets/photos/city-kazan.jpg" alt="Казань" loading="lazy"><span class="city__name">Казань</span><span class="city__sub">Скоро</span></a>
+      <a class="city" href="#"><img src="assets/photos/city-sochi.jpg" alt="Сочи" loading="lazy"><span class="city__name">Сочи</span><span class="city__sub">Скоро</span></a>
+    </div>
+  </section>
+
+  <!-- ИДЕИ -->
+  <section class="ideas">
+    <div class="container">
+      <h2 class="section__title ideas__title">Идеи для будущих поездок</h2>
+      <div class="tabs" role="tablist" aria-label="Темы идей">
+        <button class="tab is-active" role="tab" aria-selected="true" type="button" data-tab="popular">Популярное</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" data-tab="nature">Природа</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" data-tab="cruise">Круизы</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" data-tab="winter">Зимой</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" data-tab="kids">С детьми</button>
+        <button class="tab" role="tab" aria-selected="false" type="button" data-tab="food">Гастрономия</button>
+      </div>
+
+      <div class="ideas__grid is-active" data-panel="popular">
+        <a href="#"><b>Белые ночи</b><span>Петербург · июнь</span></a>
+        <a href="#"><b>Рускеала</b><span>Карелия</span></a>
+        <a href="#"><b>Кижи и Валаам</b><span>Круизы</span></a>
+        <a href="#"><b>Ладожские шхеры</b><span>Карелия</span></a>
+        <a href="#"><b>Монрепо</b><span>Выборг</span></a>
+        <a href="#"><b>Кронштадт</b><span>Ленобласть</span></a>
+        <a href="#"><b>Разводные мосты</b><span>Петербург</span></a>
+        <a href="#"><b>Гатчина</b><span>Ленобласть</span></a>
+        <a href="#"><b>Старая Ладога</b><span>Ленобласть</span></a>
+        <a href="#"><b>Шлиссельбург</b><span>Ленобласть</span></a>
+        <a href="#"><b>Павловск</b><span>Петербург</span></a>
+        <a href="#"><b>Северное сияние</b><span>Карелия · зима</span></a>
+      </div>
+
+      <div class="ideas__grid" data-panel="nature" hidden>
+        <a href="#"><b>Рускеала</b><span>Карелия</span></a>
+        <a href="#"><b>Ладожские шхеры</b><span>Карелия</span></a>
+        <a href="#"><b>Монрепо</b><span>Выборг</span></a>
+        <a href="#"><b>Зеленогорск</b><span>Курортный район</span></a>
+        <a href="#"><b>Лосевский порог</b><span>Ленобласть</span></a>
+        <a href="#"><b>Игора</b><span>Ленобласть</span></a>
+        <a href="#"><b>Парк Монрепо</b><span>Выборг</span></a>
+        <a href="#"><b>Валаам</b><span>Карелия</span></a>
+        <a href="#"><b>Кижи</b><span>Карелия</span></a>
+        <a href="#"><b>Поляна Бианки</b><span>Ленобласть</span></a>
+        <a href="#"><b>Токсово</b><span>Ленобласть</span></a>
+        <a href="#"><b>Карельский перешеек</b><span>Ленобласть</span></a>
+      </div>
+
+      <div class="ideas__grid" data-panel="cruise" hidden>
+        <a href="#"><b>Кижи и Валаам</b><span>Круизы</span></a>
+        <a href="#"><b>Валаам</b><span>Круизы</span></a>
+        <a href="#"><b>Кронштадт</b><span>Круизы</span></a>
+        <a href="#"><b>По каналам</b><span>Круизы</span></a>
+        <a href="#"><b>Разводные мосты</b><span>Круизы</span></a>
+        <a href="#"><b>Финский залив</b><span>Круизы</span></a>
+        <a href="#"><b>Ладожское озеро</b><span>Круизы</span></a>
+        <a href="#"><b>Онежское озеро</b><span>Круизы</span></a>
+        <a href="#"><b>Река Нева</b><span>Круизы</span></a>
+        <a href="#"><b>Шлиссельбург</b><span>Круизы</span></a>
+        <a href="#"><b>Метеор в Петергоф</b><span>Круизы</span></a>
+        <a href="#"><b>Вечерний теплоход</b><span>Круизы</span></a>
+      </div>
+
+      <div class="ideas__grid" data-panel="winter" hidden>
+        <a href="#"><b>Северное сияние</b><span>Карелия · зима</span></a>
+        <a href="#"><b>Ледоколы</b><span>Петербург</span></a>
+        <a href="#"><b>Катки</b><span>Петербург</span></a>
+        <a href="#"><b>Зимний Петергоф</b><span>Петергоф</span></a>
+        <a href="#"><b>Новогодние ярмарки</b><span>Петербург</span></a>
+        <a href="#"><b>Русская баня</b><span>Ленобласть</span></a>
+        <a href="#"><b>Горные лыжи</b><span>Красное озеро</span></a>
+        <a href="#"><b>Снежные скульптуры</b><span>Петербург</span></a>
+        <a href="#"><b>Зимняя рыбалка</b><span>Ладога</span></a>
+        <a href="#"><b>Рождество в Карелии</b><span>Карелия</span></a>
+        <a href="#"><b>Снегоходы</b><span>Ленобласть</span></a>
+        <a href="#"><b>Ёлки и дворцы</b><span>Петербург</span></a>
+      </div>
+
+      <div class="ideas__grid" data-panel="kids" hidden>
+        <a href="#"><b>Гранд Макет Россия</b><span>Петербург</span></a>
+        <a href="#"><b>Океанариум</b><span>Петербург</span></a>
+        <a href="#"><b>Зоопарк</b><span>Петербург</span></a>
+        <a href="#"><b>Планетарий</b><span>Петербург</span></a>
+        <a href="#"><b>Музей оптики</b><span>Петербург</span></a>
+        <a href="#"><b>Эрмитаж для детей</b><span>Петербург</span></a>
+        <a href="#"><b>КидБург</b><span>Петербург</span></a>
+        <a href="#"><b>Летний сад</b><span>Петербург</span></a>
+        <a href="#"><b>Петергоф с детьми</b><span>Петергоф</span></a>
+        <a href="#"><b>Парк Монрепо</b><span>Выборг</span></a>
+        <a href="#"><b>Кронштадт</b><span>Кронштадт</span></a>
+        <a href="#"><b>Веревочный парк</b><span>Ленобласть</span></a>
+      </div>
+
+      <div class="ideas__grid" data-panel="food" hidden>
+        <a href="#"><b>Гастрономический Петербург</b><span>Петербург</span></a>
+        <a href="#"><b>Ужин на теплоходе</b><span>Петербург</span></a>
+        <a href="#"><b>Пышечная</b><span>Петербург</span></a>
+        <a href="#"><b>Кронштадтский рынок</b><span>Кронштадт</span></a>
+        <a href="#"><b>Винные дегустации</b><span>Петербург</span></a>
+        <a href="#"><b>Сырные фермы</b><span>Ленобласть</span></a>
+        <a href="#"><b>Гастробар «Империал»</b><span>Петербург</span></a>
+        <a href="#"><b>Кофе и пышки</b><span>Петербург</span></a>
+        <a href="#"><b>Русская кухня</b><span>Петербург</span></a>
+        <a href="#"><b>Ужин в Петергофе</b><span>Петергоф</span></a>
+        <a href="#"><b>Пивоварни</b><span>Петербург</span></a>
+        <a href="#"><b>Гастротур в Выборг</b><span>Выборг</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <p class="footer__title">Поддержка</p>
+        <a href="#">Центр помощи</a>
+        <a href="#">Как вернуть билет</a>
+        <a href="#">Безопасность в поездке</a>
+        <a href="#">Доступная среда</a>
+        <a href="#">Сообщить о проблеме</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Партнёрам</p>
+        <a href="#">Разместить экскурсию</a>
+        <a href="#">Разместить жильё</a>
+        <a href="#">Кабинет организатора</a>
+        <a href="#">Агентам и гидам</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__title">Rosbooking</p>
+        <a href="#">О сервисе</a>
+        <a href="#">Новые города</a>
+        <a href="#">Подарочные сертификаты</a>
+        <a href="#">Вакансии</a>
+        <a href="#">Контакты</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Rosbooking · <a href="#">Конфиденциальность</a> · <a href="#">Условия</a></p>
+      <p class="footer__lang">Русский · ₽ RUB</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ПЕРЕКЛЮЧАТЕЛЬ ПАЛИТРЫ -->
+<div class="palette" id="palette">
+  <button class="palette__fab" type="button" id="paletteFab" aria-expanded="false" aria-controls="palettePanel" aria-label="Сменить цветовую палитру">
+    <svg class="ic" aria-hidden="true"><use href="#i-palette"/></svg>
+  </button>
+  <div class="palette__panel" id="palettePanel" role="dialog" aria-label="Цветовая палитра" hidden>
+    <div class="palette__head">
+      <div>
+        <p class="palette__title">Цветовая палитра</p>
+        <p class="palette__hint">Основной цвет интерфейса</p>
+      </div>
+      <button class="palette__close" type="button" id="paletteClose" aria-label="Закрыть">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="palette__grid" id="palettePresets"></div>
+    <div class="palette__custom">
+      <label for="customColor">Свой цвет</label>
+      <div class="palette__custom-row">
+        <input type="color" id="customColor" value="#c32023" aria-label="Выбрать цвет">
+        <input type="text" id="customHex" value="#C32023" spellcheck="false" aria-label="HEX-код цвета" maxlength="7">
+        <button class="palette__reset" type="button" id="paletteReset" aria-label="Сбросить" title="Сбросить">
+          <svg class="ic" aria-hidden="true"><use href="#i-reset"/></svg>
+        </button>
+      </div>
+    </div>
+    <p class="palette__note">Цвет применяется ко всей странице и сохраняется в браузере.</p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
