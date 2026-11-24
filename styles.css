@@ -634,7 +634,7 @@ input[type="color"]::-webkit-color-swatch{ border: 0; border-radius: 7px; }
   .logo{ font-size: 19px; }
   .logo__pin{ width: 23px; height: 23px; }
   .btn--white:not(.btn--login-mobile){ display: none; }
-  .btn--login-mobile{ height: 40px; padding: 0 18px; font-size: 13.5px; }
+  .btn--login-mobile{ display: inline-flex; height: 40px; padding: 0 18px; font-size: 13.5px; }
   .icon-btn--burger{ display: inline-flex; background: transparent; color: var(--on-accent); }
   .icon-btn--burger .ic{ width: 24px; height: 24px; }
 
