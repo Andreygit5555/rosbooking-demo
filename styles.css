@@ -365,7 +365,7 @@ h1,h2,h3,p{ margin: 0; }
 .collection::after{
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 28%, rgba(0,0,0,.42) 60%, rgba(0,0,0,.86) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 12%, rgba(0,0,0,.34) 45%, rgba(0,0,0,.7) 68%, rgba(0,0,0,.92) 100%);
 }
 .collection__body{
   position: absolute;
@@ -376,7 +376,7 @@ h1,h2,h3,p{ margin: 0; }
   flex-direction: column;
   align-items: flex-start;
 }
-.collection__label{ font-size: 12px; opacity: .92; }
+.collection__label{ font-size: 12px; opacity: .92; text-shadow: 0 1px 10px rgba(0,0,0,.35); }
 .collection__title{
   font-size: 24px;
   line-height: 1.1;
